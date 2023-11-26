@@ -11,12 +11,13 @@
   --fullRotationDeg: '7110deg';
   --navbarHeight: 80px;
   --sideDrawer-bg: #e5e0ff;
+  font-family: 'Montserrat' !important;
 }
 
 * {
   box-sizing: border-box;
   line-height: 120% !important;
-  font-family: 'GrindFont', cursive;
+  font-family: 'Montserrat' !important;
   letter-spacing: 2px;
 }
 
@@ -71,10 +72,6 @@ body {
   list-style-type: disc;
   display: flex;
   flex-direction: column;
-}
-
-.bulletList > li {
-  font-family: 'HeliosFont', cursive;
 }
 
 .MontserratFamily {

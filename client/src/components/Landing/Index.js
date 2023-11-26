@@ -1,10 +1,10 @@
 import React from 'react';
-import Section1 from './Section1';
+import FileUploader from './FileUploader/FileUploader';
 
 const Index = () => {
   return (
     <>
-      <Section1 />
+      <FileUploader />
     </>
   );
 };

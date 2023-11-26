@@ -3,14 +3,10 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import FallbackLoader from './components/Common/FallbackLoader/FallbackLoader';
 import Header from './components/Common/Header/index';
-import Footer from './components/Common/Footer/Footer';
-
-import Admin from './components/Admin/Index';
 
 import { scrollToTop } from './utils/helperFunctions';
-import { FortuneContext } from './context/FortuneContext';
 
-import { ALL_ROUTES, ALL_ROUTES_PATHS } from './utils/routes';
+import { ALL_ROUTES } from './utils/routes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,7 +34,7 @@ function App() {
   );
 
   return (
-    <div className={`${isWheelOfFortuneSpinning && 'pointer-events-none'} h-screen`}>
+    <div className="h-screen">
       <ToastWrapper />
       <Header />
 
@@ -52,8 +48,6 @@ function App() {
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>
         </Suspense>
-
-        {pathname !== ALL_ROUTES_PATHS.KEY_PRESSER_GAME_PLAY && <Footer />}
       </div>
     </div>
   );

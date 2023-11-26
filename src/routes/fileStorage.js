@@ -1,12 +1,13 @@
-const { check, validationResult } = require('express-validator');
-
+const multer = require('multer');
 const express = require('express');
 const router = express.Router();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 //@route GET api/getLeaderBoardByPassType
 //desc - Get Leader board by pass type
 router.get('/getLeaderBoardByPassType', async (req, res) => {
-
   try {
     const params = { pass_type: passType };
     res.json(leaderBoard);
@@ -16,30 +17,22 @@ router.get('/getLeaderBoardByPassType', async (req, res) => {
   }
 });
 
-//@route POST api/insertUserEmail
-//desc - Post user email
-router.post(
-  '/insertUserEmail',
-  [check('email', 'Valid email is required').isEmail().not().isEmpty()],
-  async (req, res) => {
-    const errors = validationResult(req);
+//@route POST api/fileService/upload
+//desc - uploads file to server
+router.post('/upload', upload.single('file'), async (req, res) => {
+  try {
+    const fileName = req.file.originalname;
+    const fileContent = req.file.buffer.toString('utf-8');
 
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+    console.log('Received file:');
+    console.log('File Name:', fileName);
+    console.log('File Content:', fileContent);
 
-    try {
-      const { accountId = '', email } = req.body;
-
-      const params = { [HCS_KEYS.user_account_id]: accountId, [HCS_KEYS.email]: email };
-      await insertUserEmail(params);
-
-      res.send('Success');
-    } catch (err) {
-      console.log(err.message);
-      res.status(500).send('Server Error');
-    }
+    res.json({ success: true });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
   }
-);
+});
 
 module.exports = router;

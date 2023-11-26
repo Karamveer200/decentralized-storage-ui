@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "start": "node server.js",
+    "server": "set NODE_ENV=development&&nodemon server",
+    "client": "npm run startLocal --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "decentralized-storage-ui",
@@ -18,7 +20,9 @@
     "express-validator": "^6.15.0",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
-    "request": "^2.88.2"
+    "multer": "^1.4.5-lts.1",
+    "request": "^2.88.2",
+    "web3": "^4.2.2"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",

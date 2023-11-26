@@ -18,7 +18,7 @@ ReactDOM.render(
   <React.Fragment>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-              <App />
+        <App />
       </QueryClientProvider>
     </BrowserRouter>
   </React.Fragment>,

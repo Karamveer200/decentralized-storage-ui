@@ -14,7 +14,7 @@ app.get('/api/health', async (req, res) => {
   res.send(`FE Node app is running on ${configurations.NODE_ENV} environment`);
 });
 
-app.use('/api/public', require('./src/routes/fileStorage'));
+app.use('/api/fileService', require('./src/routes/fileStorage'));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));

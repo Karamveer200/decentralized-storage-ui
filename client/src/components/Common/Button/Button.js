@@ -30,9 +30,7 @@ const Button = ({
         type="button"
         className={`relative inline-flex items-center gap-x-1.5 rounded-md py-2 px-[12px] sm:px-4 sm:py-2 text-xxxs sm:text-xs 
        xl:text-sm text-white shadow-sm  bg-indigo-600 hover:bg-indigo-400 transition-all 
-        ease-in duration-100 hover:text-gray-900 GrindFontFamily  ${
-          disabled && 'disable-btn'
-        } whitespace-nowrap 
+        ease-in duration-100 hover:text-gray-900  ${disabled && 'disable-btn'} whitespace-nowrap 
         ${allowFullWidth ? fullWidth : limitWidth}
         ${btnClassName} `}
         onClick={handleClick}>
