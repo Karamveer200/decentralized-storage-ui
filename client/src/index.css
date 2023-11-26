@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'GrindFont';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('./assets/fonts/Grind.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'HeliosFont';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('./assets/fonts/Helios.otf') format('opentype');
-}
-
 :root {
   --disabled-color: #58585a;
   --indigo-500: #6366f1;
@@ -91,16 +75,6 @@ body {
 
 .bulletList > li {
   font-family: 'HeliosFont', cursive;
-}
-
-.heliosFontFamily {
-  font-family: 'HeliosFont', cursive !important;
-  line-height: 160% !important;
-}
-
-.GrindFontFamily {
-  font-family: 'GrindFont', cursive !important;
-  line-height: 150% !important;
 }
 
 .MontserratFamily {
