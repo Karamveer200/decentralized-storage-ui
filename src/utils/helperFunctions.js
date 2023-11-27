@@ -1,16 +1,27 @@
-require('dotenv').config();
-const configurations = require('../../config');
-
-const getDynamicEnv = async (key) => {
-  if (configurations.NODE_ENV === NODE_ENVS.development) {
-    return key;
+export const scrollToTop = (smooth = false) => {
+  if (smooth) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   } else {
-    return await secretManager.getSecretValue(key);
+    window.scrollTo(0, 0);
   }
 };
 
-const isEmptyArray = (input = []) => {
-  return Array.isArray(input) && input?.length > 0 ? false : true;
-};
+export const readFileForContents = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
 
-module.exports = {};
+    reader.onload = (e) => {
+      resolve(e.target.result);
+    };
+
+    reader.onerror = (error) => {
+      reject(error);
+    };
+
+    reader.readAsText(file);
+  });
+};
